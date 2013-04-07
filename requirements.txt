@@ -1,0 +1,5 @@
+Django==1.4.5
+lxml==3.1.1
+psycopg2==2.4.6
+python-amazon-product-api==0.2.6pre-ea19866d7b57
+python-amazon-simple-product-api==1.1.3
