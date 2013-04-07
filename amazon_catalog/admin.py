@@ -1,8 +1,6 @@
 from django.contrib import admin
-from mptt.admin import MPTTModelAdmin
-from amazon_catalog.models import Category
+from amazon_catalog.models import *
 
-class CategoryAdmin(MPTTModelAdmin):
-    list_filter = ('level',)
-
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(ProductGroup, admin.ModelAdmin)
+admin.site.register(Product, admin.ModelAdmin)
+admin.site.register(CatalogSection, admin.ModelAdmin)
