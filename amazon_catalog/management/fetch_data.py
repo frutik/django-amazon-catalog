@@ -6,21 +6,22 @@ from amazon_catalog.models import *
 api = API(locale='us')
 
 def _product_lookup(nodeset, section, relationship):
-    for node in nodeset:
-        i = api.item_lookup(str(node.ASIN))
+    ids = [str(node.ASIN) for node in nodeset]
+    r = api.item_lookup(','.join(ids))
+    for i in r.Items.Item:
         try:
-            group, created = ProductGroup.objects.get_or_create(name=str(i.Items.Item.ItemAttributes.ProductGroup))
+            group, created = ProductGroup.objects.get_or_create(name=str(i.ItemAttributes.ProductGroup))
             product, created = Product.objects.get_or_create(
                 group=group,
-                asin=i.Items.Item.ASIN,
-                title=i.Items.Item.ItemAttributes.Title
+                asin=i.ASIN,
+                title=i.ItemAttributes.Title
             )
             product.add_relation(section, relationship)
-            AmazonResponse.objects.create(
-                product=product,
-                raw=etree.tostring(i)
-            )
-            print i.Items.Item.ItemAttributes.ProductGroup, i.Items.Item.ASIN, i.Items.Item.ItemAttributes.Title
+            # AmazonResponse.objects.create(
+            #     product=product,
+            #     raw=etree.tostring(i)
+            # )
+            print i.ItemAttributes.ProductGroup, i.ASIN, i.ItemAttributes.Title
         except Exception, e:
             print '#1', e
 
