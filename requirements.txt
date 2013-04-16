@@ -2,6 +2,7 @@ flup
 Django==1.4.5
 lxml==3.1.1
 psycopg2==2.4.6
+south
 
 -e hg+https://bitbucket.org/basti/python-amazon-product-api#egg=python-amazon-product-api
 -e git+https://github.com/yoavaviram/python-amazon-simple-product-api.git#egg=python-amazon-simple-product-api
