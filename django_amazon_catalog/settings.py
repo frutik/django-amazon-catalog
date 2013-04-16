@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     # 'mptt',
     'amazon_catalog',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
