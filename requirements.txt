@@ -1,5 +1,6 @@
 Django==1.4.5
 lxml==3.1.1
 psycopg2==2.4.6
-python-amazon-product-api==0.2.6pre-ea19866d7b57
-python-amazon-simple-product-api==1.1.3
+
+-e hg+https://bitbucket.org/basti/python-amazon-product-api#egg=python-amazon-product-api
+-e git+https://github.com/yoavaviram/python-amazon-simple-product-api.git#egg=python-amazon-simple-product-api
