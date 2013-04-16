@@ -8,10 +8,15 @@ Create a file ``~/.amazon-product-api`` containing the following data::
     secret_key = <your secret key>
     associate_tag = <your associate id>
 
+Install dependencies
 
+    pip install -r requirements.txt
+    
+Configure your db
 
-`
- python manage.py fetch_data 11055981 'Beauty'
-`
+Run
+
+    python manage.py fetch_data 11055981 'Beauty'
+
 
 See list of possible sections here (you should use info from column for US) - http://docs.aws.amazon.com/AWSECommerceService/latest/DG/BrowseNodeIDs.html
