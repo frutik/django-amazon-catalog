@@ -1,6 +1,8 @@
 from amazonproduct import API
 # from lxml import etree
 
+#TODO manual transaction handling
+
 from django.core.management.base import BaseCommand
 
 from amazon_catalog.models import *

@@ -15,6 +15,8 @@ class Product(models.Model):
     asin = models.CharField(max_length=255)
     title = models.CharField(max_length=255)
     group = models.ForeignKey(ProductGroup)
+    # product = models.ManyToManyField('Product', null=True, related_name='related_products',
+    #     through='ProductProductRelationship')
 
     def __unicode__(self):
         return self.title
@@ -24,6 +26,11 @@ class Product(models.Model):
             product=self,
             section=section,
             relation_type=relation_type)
+
+# class ProductProductRelationship(models.Model):
+#     product1 = models.ForeignKey(Product)
+#     product2 = models.ForeignKey(Product)
+#     relation_type = models.CharField(max_length=255)
 
 class CatalogSection(models.Model):
     path = models.TextField(unique=True)
